@@ -26,4 +26,37 @@ public class EmployeePayrollTest {
 		long entryCount = employeePayrollService.countLines();
 		Assert.assertEquals(4, entryCount);
 	}
+	
+	@Test
+	public void givenEmployeeWhenWrittenShouldNotMatchEmployeeEntries() throws IOException{
+		EmployeePayroll[] array = {
+			new EmployeePayroll(101, "Bob", 36000),
+			new EmployeePayroll(232, "Kevin", 45000),
+			new EmployeePayroll(312, "Vincent", 24000),
+			new EmployeePayroll(445, "Madara" , 60000)
+		};
+		
+		EmployeePayrollService employeePayrollService = new EmployeePayrollService(Arrays.asList(array));
+		employeePayrollService.writeEmployeePayrollToFile();
+		long entryCount = employeePayrollService.countLines();
+		Assert.assertNotEquals(3, entryCount);
+	}
+	
+	@Test
+	public void givenEmployeeWhenPrintedInConsoleShouldMatchEmployeeEntries() throws IOException{
+		EmployeePayroll[] array = {
+			new EmployeePayroll(101, "Bob", 36000),
+			new EmployeePayroll(232, "Kevin", 45000),
+			new EmployeePayroll(312, "Vincent", 24000),
+			new EmployeePayroll(445, "Madara" , 60000)
+		};
+		
+		EmployeePayrollService employeePayrollService = new EmployeePayrollService(Arrays.asList(array));
+		employeePayrollService.writeEmployeePayrollToFile();
+		Assert.assertTrue(employeePayrollService.print());
+		long entryCount = employeePayrollService.countLines();
+		Assert.assertEquals(4, entryCount);
+	}
+	
+	
 }
