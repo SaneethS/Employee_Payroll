@@ -74,4 +74,19 @@ public class EmployeePayrollService {
 		System.out.println(entries);
 		return entries;
 	}
+	
+	/**
+	 * method to print the data
+	 * @return
+	 */
+	public boolean print() {
+		try {
+			Files.lines(new File(inputFileName).toPath()).forEach(System.out::println);
+			return true;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
 }
