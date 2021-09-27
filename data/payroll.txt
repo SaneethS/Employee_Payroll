@@ -1,0 +1,4 @@
+EmployeePayroll [empId=101, name=Bob, salary=36000.0]
+EmployeePayroll [empId=232, name=Kevin, salary=45000.0]
+EmployeePayroll [empId=312, name=Vincent, salary=24000.0]
+EmployeePayroll [empId=445, name=Madara, salary=60000.0]
